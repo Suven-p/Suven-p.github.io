@@ -1,0 +1,43 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "build",
+			"group": "build",
+			"label": "npm-build",
+			"detail": "Build site",
+			"problemMatcher": [],
+		},
+		{
+			"type": "npm",
+			"script": "clean",
+			"group": "none",
+			"label": "npm-clean",
+			"detail": "Clean site",
+			"problemMatcher": [],
+		},
+		{
+			"type": "shell",
+			"group": "none",
+			"label": "rebuild",
+			"detail": "Rebuild site",
+			"problemMatcher": [],
+			"dependsOn": [
+				"npm-clean",
+				"npm-build"
+			],
+			"dependsOrder": "sequence",
+		},
+		{
+			"type": "npm",
+			"script": "typecheck",
+			"group": "none",
+			"label": "typescript-check",
+			"detail": "Check for typescript errors",
+			"problemMatcher": [
+				"$tsc"
+			],
+		}
+	]
+}
