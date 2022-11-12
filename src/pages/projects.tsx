@@ -2,15 +2,15 @@ import * as React from "react";
 import type { HeadFC, PageProps } from "gatsby";
 import DefaultLayout from '../components/DefaultLayout';
 
-const IndexPage: React.FC<PageProps> = ({ location }) => {
+const ProjectsPage: React.FC<PageProps> = ({ location }) => {
   return (
     <DefaultLayout location={location.pathname}>
-      This is the index page.
+      This is the projects page.
     </DefaultLayout>
   );
 
 };
 
-export default IndexPage;
+export default ProjectsPage;
 
-export const Head: HeadFC = () => <title>Suven Pandey</title>;
+export const Head: HeadFC = () => <title>Suven Pandey: Projects</title>;
