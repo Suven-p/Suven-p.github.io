@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Navbar';
 import 'twin.macro';
+import Footer from './Footer';
 
 function DefaultLayout({ children }: React.PropsWithChildren) {
   return (
@@ -12,6 +13,7 @@ function DefaultLayout({ children }: React.PropsWithChildren) {
         aria-label="Content">
         {children}
       </main>
+      <Footer />
     </div>
   );
 }
