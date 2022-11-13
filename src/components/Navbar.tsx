@@ -35,16 +35,14 @@ const ToggleButton = styled.div(({ toggleWidth, toggleHeight, toggleGap, checked
         width: calc(${toggleHeight} - (${toggleGap} * 2));
         position: absolute;
         transition: .4s;
-    }`,
-    checked &&
-    `
-        &:before {
+    }
+
+    .dark &:before {
             transform: translateX(calc(${toggleWidth} - ${toggleHeight}));
             background: url(${moonImage});
         }
     `,
-    tw`absolute inset-0 rounded-3xl cursor-pointer`,
-    checked ? tw`bg-slate-600` : tw`bg-slate-300`,
+    tw`bg-slate-300 dark:bg-slate-600 absolute inset-0 rounded-3xl cursor-pointer`,
 ]);
 
 function Links({ links, currentPath }: { links: Array<Array<string>>, currentPath: string; }) {

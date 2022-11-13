@@ -1,14 +1,9 @@
 import React, { useState, useEffect, PropsWithChildren } from 'react';
 
-export const ThemeContext = React.createContext({ contextTheme: 'dark', setContextTheme: (value: string | ((old: string) => string)) => '' });
+export const ThemeContext = React.createContext({ contextTheme: 'dark', setContextTheme: (value: string | ((old: string) => string)) => { } });
 
 export const ThemeProvider: React.FC = ({ children }: PropsWithChildren) => {
-    let savedTheme = localStorage.getItem('theme');
-    if (savedTheme !== 'dark' && savedTheme !== 'light') {
-        // If matchMedia.matches returns empty string or other falsy value use dark mode
-        savedTheme = window.matchMedia("(prefers-color-scheme: dark)").matches !== false ? 'dark' : 'light';
-        localStorage.setItem('theme', savedTheme);
-    }
+    let savedTheme = localStorage.getItem('theme') === 'light' ? 'light' : 'dark';
     const [theme, rawSetTheme] = useState(savedTheme);
     useEffect(() => {
         saveTheme(theme);
