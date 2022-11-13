@@ -12,7 +12,7 @@ const config: GatsbyConfig = {
   plugins: ["gatsby-plugin-emotion", "gatsby-plugin-image", "gatsby-plugin-sitemap", 'gatsby-plugin-postcss', {
     resolve: 'gatsby-plugin-manifest',
     options: {
-      "icon": "src/images/icon.png"
+      "icon": "src/images/icon.svg"
     }
   }, "gatsby-plugin-sharp", "gatsby-transformer-sharp", {
     resolve: 'gatsby-source-filesystem',
