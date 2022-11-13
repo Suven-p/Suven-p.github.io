@@ -12,15 +12,15 @@ import { Link } from 'gatsby';
 function MainLogo() {
     const style = css`
         height: 100%;
-        & > * {
+        div {
             height: 100%;
         }
     `;
     // Loads both light and dark images but conditional rendering breaks image for first visit
     return (
         <>
-            <StaticImage src={`../images/icon_dark.svg`} alt="Suven Pandey" css={[style, tw`hidden dark:block`]} />
-            <StaticImage src={`../images/icon_light.svg`} alt="Suven Pandey" css={[style, tw`block dark:hidden`]} />
+            <StaticImage src={`../images/icon_dark.svg`} alt="Suven Pandey" css={[style, tw`hidden dark:block`]} objectFit="fill" />
+            <StaticImage src={`../images/icon_light.svg`} alt="Suven Pandey" css={[style, tw`block dark:hidden`]} objectFit="fill" />
         </>
     );
 }
