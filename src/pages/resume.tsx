@@ -3,7 +3,7 @@ import type { HeadFC, PageProps } from "gatsby";
 import Header from '../components/Navbar';
 import DefaultLayout from '../components/DefaultLayout';
 
-const ResumePage: React.FC<PageProps> = ({ location }) => {
+const ResumePage: React.FC<PageProps> = () => {
   return (
     <DefaultLayout>
       This is the resume page.

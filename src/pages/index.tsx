@@ -14,6 +14,8 @@ const MainDiv = styled.div`
   column-gap: .5rem;
   height: 100%;
 `;
+
+const IndexPage: React.FC<PageProps> = () => {
   return (
     <DefaultLayout>
       <MainDiv>

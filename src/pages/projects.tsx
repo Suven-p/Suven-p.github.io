@@ -2,7 +2,7 @@ import * as React from "react";
 import type { HeadFC, PageProps } from "gatsby";
 import DefaultLayout from '../components/DefaultLayout';
 
-const ProjectsPage: React.FC<PageProps> = ({ location }) => {
+const ProjectsPage: React.FC<PageProps> = () => {
   return (
     <DefaultLayout>
       This is the projects page.
