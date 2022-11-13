@@ -4,7 +4,7 @@ import DefaultLayout from '../components/DefaultLayout';
 
 const IndexPage: React.FC<PageProps> = ({ location }) => {
   return (
-    <DefaultLayout location={location.pathname}>
+    <DefaultLayout>
       This is the index page.
     </DefaultLayout>
   );

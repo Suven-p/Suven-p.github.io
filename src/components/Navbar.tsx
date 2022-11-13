@@ -45,14 +45,16 @@ const ToggleButton = styled.div(({ toggleWidth, toggleHeight, toggleGap, checked
     tw`bg-slate-300 dark:bg-slate-600 absolute inset-0 rounded-3xl cursor-pointer`,
 ]);
 
-function Links({ links, currentPath }: { links: Array<Array<string>>, currentPath: string; }) {
+function Links({ links }: { links: Array<Array<string>>; }) {
     return (
         <>
             {
                 links.map(([title, path]) => {
-                    const visitingCurrentPage = currentPath === path;
                     return (
-                        <Link to={path} key={title} css={[visitingCurrentPage ? tw`text-cyan-500 hover:text-cyan-500` : tw`text-black dark:text-slate-300 visited:text-black`]}>{title}</Link>
+                        <Link to={path} key={title}
+                            css={[tw`text-black dark:text-slate-300 visited:text-black`]}
+                            activeStyle={tw`text-cyan-500 hover:text-cyan-500`}
+                        >{title}</Link>
                     );
                 })
             }
@@ -60,9 +62,10 @@ function Links({ links, currentPath }: { links: Array<Array<string>>, currentPat
     );
 }
 
-function Navbar({ currentPath }: { currentPath: string; }) {
+function Navbar() {
     const [menuExpanded, setMenuExpanded] = useState(false);
     const toggleExpanded = () => {
+        console.log('Setting expanded to ', !menuExpanded);
         setMenuExpanded((currentValue) => !currentValue);
     };
     const links = [
@@ -100,7 +103,7 @@ function Navbar({ currentPath }: { currentPath: string; }) {
     );
 }
 
-function Header({ location }: { location: string; }) {
+function Header() {
     const { contextTheme, setContextTheme } = useContext(ThemeContext);
     const toggleTheme = () => {
         setContextTheme((oldTheme) => {
@@ -124,7 +127,7 @@ function Header({ location }: { location: string; }) {
 
 
             <nav tw="flex items-center gap-4">
-                <Navbar currentPath={location} />
+                <Navbar />
                 <label htmlFor="theme-toggle" css={[tw`relative w-[${toggleWidth}] h-[${toggleHeight}]`]} >
                     <input type="checkbox" checked={isDarkMode} id="theme-toggle" tw="hidden" onChange={toggleTheme} />
                     <ToggleButton toggleWidth={toggleWidth} toggleHeight={toggleHeight} toggleGap={toggleGap} checked={isDarkMode} />
