@@ -85,19 +85,8 @@ function Navbar() {
                     </svg>
                 </span>
             </label>
-            {
-                menuExpanded && (
-                    <div id="SmallScreenNavbar"
-                        tw="sm:hidden flex flex-col gap-2 fixed top-[50px] right-[35px] bg-slate-300 dark:bg-slate-800 rounded-sm z-50 pl-2 pr-4">
-                        {
-                            <Links links={links} currentPath={currentPath} />
-                        }
-                    </div>
-
-                )
-            }
-            <div tw='hidden sm:(flex flex-row gap-2)' id="largeScreenNavbar">
-                <Links links={links} currentPath={currentPath} />
+            <div css={[tw`hidden`, menuExpanded && tw`flex flex-col gap-2 fixed top-[50px] right-[35px] bg-slate-300 dark:bg-slate-800 rounded-sm z-50 pl-2 pr-4`, tw`sm:(flex flex-row gap-4 static bg-transparent dark:bg-transparent rounded-none p-0)`,]}>
+                <Links links={links} />
             </div>
         </>
     );
