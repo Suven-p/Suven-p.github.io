@@ -9,23 +9,20 @@ import sunImage from '../images/sun.png';
 import moonImage from '../images/moon.png';
 import { Link } from 'gatsby';
 
-function MainLogo({ theme }: { theme: string; }) {
+function MainLogo() {
     const style = css`
         height: 100%;
         & > * {
             height: 100%;
         }
     `;
-    if (theme === 'dark') {
-        return (
-            <StaticImage src={`../images/icon_dark.svg`} alt="Suven Pandey" css={[style]} />
-        );
-    }
-    else {
-        return (
-            <StaticImage src={`../images/icon_light.svg`} alt="Suven Pandey" css={[style]} />
-        );
-    }
+    // Loads both light and dark images but conditional rendering breaks image for first visit
+    return (
+        <>
+            <StaticImage src={`../images/icon_dark.svg`} alt="Suven Pandey" css={[style, tw`hidden dark:block`]} />
+            <StaticImage src={`../images/icon_light.svg`} alt="Suven Pandey" css={[style, tw`block dark:hidden`]} />
+        </>
+    );
 }
 
 const ToggleButton = styled.div(({ toggleWidth, toggleHeight, toggleGap, checked }: { toggleWidth: string, toggleHeight: string; toggleGap: string; checked: boolean; }) => [
@@ -123,7 +120,7 @@ function Header({ location }: { location: string; }) {
             tw="fixed top-0 w-full h-[5rem] z-50 bg-inherit flex justify-between items-center px-5 py-1 border-b border-solid border-gray-500 dark:border-slate-500 max-h-[50vh]"
         >
             <a rel="author" href="/" tw="h-full max-h-[50vh]">
-                <MainLogo theme={contextTheme} />
+                <MainLogo />
             </a>
 
 
