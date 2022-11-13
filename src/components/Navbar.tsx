@@ -108,8 +108,10 @@ function Navbar({ currentPath }: { currentPath: string; }) {
 function Header({ location }: { location: string; }) {
     const { contextTheme, setContextTheme } = useContext(ThemeContext);
     const toggleTheme = () => {
-        const newTheme = contextTheme === 'light' ? 'dark' : 'light';
-        setContextTheme(newTheme);
+        setContextTheme((oldTheme) => {
+            const newTheme = oldTheme === 'light' ? 'dark' : 'light';
+            return newTheme;
+        });
     };
     const isDarkMode = contextTheme === 'dark';
     const toggleWidth = '50px';

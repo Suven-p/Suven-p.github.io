@@ -1,6 +1,6 @@
 import React, { useState, useEffect, PropsWithChildren } from 'react';
 
-export const ThemeContext = React.createContext({ contextTheme: 'dark', setContextTheme: (value: string) => { } });
+export const ThemeContext = React.createContext({ contextTheme: 'dark', setContextTheme: (value: string | ((old: string) => string)) => '' });
 
 export const ThemeProvider: React.FC = ({ children }: PropsWithChildren) => {
     let savedTheme = localStorage.getItem('theme');
