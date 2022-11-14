@@ -59,9 +59,9 @@ const MaximizeButton = styled.div`
     }
 `;
 
-function Window({ title, children }: { title: string, children: React.ReactNode; }) {
+function Window({ title, children, ...remaining }: { title: string, children: React.ReactNode;[key: string | number]: any; }) {
     return (
-        <div tw="flex flex-col w-full h-full border border-solid border-black dark:border-white rounded-md">
+        <div tw="flex flex-col w-full h-full border border-solid border-black dark:border-white rounded-md" {...remaining}>
             <div tw="h-[2rem] bg-[#3b3b3b] flex items-center rounded-t-md">
                 <div tw="ml-2 flex gap-2">
                     <CloseButton role="button" />
