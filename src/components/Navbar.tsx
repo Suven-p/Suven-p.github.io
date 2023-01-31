@@ -50,6 +50,11 @@ function Links({ links }: { links: Array<Array<string>>; }) {
         <>
             {
                 links.map(([title, path]) => {
+                    if (path === '/resume/') {
+                        return (
+                            <a href="/SuvenPandey.pdf" key={title} target="_blank" rel="noreferrer">{title}</a>
+                        );
+                    }
                     return (
                         <Link to={path} key={title}
                             css={[tw`text-black dark:text-slate-300 visited:text-black`]}
