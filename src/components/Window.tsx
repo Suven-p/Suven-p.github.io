@@ -70,7 +70,7 @@ function Window({ title, children, ...remaining }: { title: string, children: Re
                 </div>
                 <div className="mx-auto text-white">{title}</div>
             </div>
-            <div tw="grow p-2 overflow-scroll">
+            <div tw="grow p-2 overflow-auto">
                 {children}
             </div>
         </div>

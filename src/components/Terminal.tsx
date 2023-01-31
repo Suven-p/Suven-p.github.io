@@ -9,7 +9,7 @@ interface Commands {
     [key: string]: (args: any[]) => ReactNode;
 }
 function Terminal({ initialPrompt, commands }: { initialPrompt: string, commands: Commands; }) {
-    const [history, setHistory] = useState(['echo', 'echo'] as string[]);
+    const [history, setHistory] = useState(['help'] as string[]);
     const [currentCommand, setCurrentCommand] = useState('');
     const inputRef = useRef<HTMLInputElement>(null);
     const inputPrompt = (
@@ -17,27 +17,32 @@ function Terminal({ initialPrompt, commands }: { initialPrompt: string, commands
             <label>
                 {initialPrompt}
             </label>
-            <input type='text' id="newCommand" ref={inputRef} className='bg-inherit grow focus-visible:outline-none' value={currentCommand} onChange={(e) => setCurrentCommand(e.target.value)} />
+            <input type='text' id="newCommand" autoComplete='off' ref={inputRef} className='bg-inherit grow focus-visible:outline-none' value={currentCommand} onChange={(e) => setCurrentCommand(e.target.value)} />
         </div>
     );
     const onCommandEnter: React.FormEventHandler<HTMLFormElement> = (e) => {
+        e.preventDefault();
+        if (currentCommand === 'clear') {
+            setHistory([]);
+            setCurrentCommand('');
+            return;
+        }
         setHistory((currentHistory) => [...currentHistory, currentCommand]);
         setCurrentCommand('');
-        e.preventDefault();
     };
     return (
         <Window title='Terminal' onClick={() => inputRef.current && inputRef.current.focus()}>
             {history.map((command, index) => {
                 return (
-                    <>
-                        <div key={index} className="flex gap-2">
-                            <span>{initialPrompt}</span>
-                            <span className="grow">{command}</span>
+                    <div key={index}>
+                        <div>
+                            <span className="mr-2"> {">"}</span>
+                            <span className={`${Array.from(Object.keys(commands)).includes(command) ? "text-green-500" : "text-red-500"}`}>{command}</span>
                         </div>
                         {
                             getCommandExecutionResult(command, commands)
                         }
-                    </>
+                    </div>
                 );
             })}
             <form onSubmit={onCommandEnter} >
@@ -47,11 +52,6 @@ function Terminal({ initialPrompt, commands }: { initialPrompt: string, commands
     );
 }
 
-Terminal.propTypes = {
-    commands: {
-        string: PropTypes.func
-    }
-};
 function getCommandExecutionResult(command: string, commands: Commands) {
     // Test with `apples bananas "apples and bananas" 'pears and strawberries' 'mangoes "and" apples' "apples 'and' mangoes" "apples and bananas and pears"`
     if (!command) {
