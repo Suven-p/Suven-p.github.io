@@ -8,16 +8,29 @@ import Window from './Window';
 interface Commands {
     [key: string]: (args: any[]) => ReactNode;
 }
-function Terminal({ initialPrompt, commands }: { initialPrompt: string, commands: Commands; }) {
+function Terminal({
+    initialPrompt,
+    commands,
+}: {
+    initialPrompt: string;
+    commands: Commands;
+}) {
     const [history, setHistory] = useState(['help'] as string[]);
     const [currentCommand, setCurrentCommand] = useState('');
     const inputRef = useRef<HTMLInputElement>(null);
     const inputPrompt = (
-        <div id="inputPrompt" className='flex gap-2'>
-            <label>
-                {initialPrompt}
-            </label>
-            <input type='text' id="newCommand" autoComplete='off' ref={inputRef} className='bg-inherit grow focus-visible:outline-none' value={currentCommand} onChange={(e) => setCurrentCommand(e.target.value)} />
+        <div id='inputPrompt' className='flex gap-2'>
+            <label>{initialPrompt}</label>
+            <input
+                type='text'
+                id='newCommand'
+                autoComplete='off'
+                ref={inputRef}
+                style={{ outline: 'none' }}
+                className='bg-inherit grow focus-visible:outline-none focus:outline-none outline-none border-none focus:border-none focus-visible:border-none ring-0 focus:ring-0'
+                value={currentCommand}
+                onChange={(e) => setCurrentCommand(e.target.value)}
+            />
         </div>
     );
     const onCommandEnter: React.FormEventHandler<HTMLFormElement> = (e) => {
@@ -31,23 +44,32 @@ function Terminal({ initialPrompt, commands }: { initialPrompt: string, commands
         setCurrentCommand('');
     };
     return (
-        <Window title='Terminal' onClick={() => inputRef.current && inputRef.current.focus()}>
+        <Window
+            title='Terminal'
+            onClick={() => inputRef.current && inputRef.current.focus()}
+        >
             {history.map((command, index) => {
                 return (
                     <div key={index}>
                         <div>
-                            <span className="mr-2"> {">"}</span>
-                            <span className={`${Array.from(Object.keys(commands)).includes(command) ? "text-green-500" : "text-red-500"}`}>{command}</span>
+                            <span className='mr-2'> {'>'}</span>
+                            <span
+                                className={`${
+                                    Array.from(Object.keys(commands)).includes(
+                                        command
+                                    )
+                                        ? 'text-green-500'
+                                        : 'text-red-500'
+                                }`}
+                            >
+                                {command}
+                            </span>
                         </div>
-                        {
-                            getCommandExecutionResult(command, commands)
-                        }
+                        {getCommandExecutionResult(command, commands)}
                     </div>
                 );
             })}
-            <form onSubmit={onCommandEnter} >
-                {inputPrompt}
-            </form>
+            <form onSubmit={onCommandEnter}>{inputPrompt}</form>
         </Window>
     );
 }
@@ -59,20 +81,11 @@ function getCommandExecutionResult(command: string, commands: Commands) {
     }
     const [baseCommand, ...args] = command
         .match(/'([^']+)'|"([^"]+)"|([^\s]+)/g)!
-        .map(st => st.replace(/(^['"])|['"]$/g, ""));
+        .map((st) => st.replace(/(^['"])|['"]$/g, ''));
     if (baseCommand in commands) {
-        return (
-            <div>
-                {commands[baseCommand](args)}
-            </div>
-        );
-    }
-    else {
-        return (
-            <div>
-                {`${baseCommand}: command not found`}
-            </div>
-        );
+        return <div>{commands[baseCommand](args)}</div>;
+    } else {
+        return <div>{`${baseCommand}: command not found`}</div>;
     }
 }
 
