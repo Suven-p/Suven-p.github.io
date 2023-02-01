@@ -14,7 +14,6 @@ interface FormRowProps {
         onValueChange: (value: string) => void;
         id: string;
         error: string;
-        modified: boolean;
     }[];
 }
 const FormRow = ({ data }: FormRowProps) => {
@@ -132,7 +131,7 @@ const ContactPage: React.FC<PageProps> = () => {
     };
 
     React.useEffect(() => {
-        setErrors([]);
+        setErrors({});
     }, [firstName, lastName, email, subject, message]);
 
     React.useEffect(() => {
