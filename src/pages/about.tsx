@@ -59,9 +59,10 @@ const AboutPage: React.FC<PageProps> = () => {
                             About Me
                         </div>
                         <p className='text-gray-700 text-base'>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit. Voluptatibus quia, nulla! Maiores et
-                            perferendis eaque, exercitationem praesentium nihil.
+                            Hey, I'm Suven Pandey. I am a student from Nepal
+                            currently pursuing undergraduate in Computer
+                            Engineering. I'm currently exploring Reinforcement
+                            Learning.
                         </p>
                     </div>
                 </div>
