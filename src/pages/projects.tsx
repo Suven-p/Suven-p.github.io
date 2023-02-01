@@ -17,7 +17,7 @@ const ProjectsPage: React.FC<PageProps> = () => {
                 </h1>
                 <div className='grid md:grid-cols-2 gap-6'>
                     <ProjectCard
-                        title='Fitness FLow'
+                        title='Fitness Flow'
                         techTitle=''
                         description='Flow into fitness with fitness flow'
                         repoLink='https://github.com/Suven-p/treasurehacks'
