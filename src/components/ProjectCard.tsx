@@ -19,11 +19,11 @@ const ProjectCard: FC<Props> = ({
 }: Props) => {
     // const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
     const isTabletOrMobile = false;
-    const [hovering, setHovering] = useState(false);
+    // const [hovering, setHovering] = useState(false);
 
-    const hoverHandler = () => {
-        setHovering(!hovering);
-    };
+    // const hoverHandler = () => {
+    //     setHovering(!hovering);
+    // };
 
     return (
         <motion.div
@@ -46,11 +46,11 @@ const ProjectCard: FC<Props> = ({
             className='bg-zinc-800 text-white px-10 py-8 flex flex-col space-y-2 rounded-sm transition-all duration-200 hover:drop-shadow-2xl'
         >
             <div
-                onMouseOver={() => setHovering(true)}
-                onMouseOut={() => setHovering(false)}
+            // onMouseOver={() => setHovering(true)}
+            // onMouseOut={() => setHovering(false)}
             >
-                {!hovering && <div className=''>Ahoy</div>}
-                {hovering && (
+                {/* {!hovering && <div className=''>Ahoy</div>} */}
+                {true && (
                     <div className=''>
                         <p className='text-white-secondary uppercase font-medium tracking-widest text-sm'>
                             {techTitle}
