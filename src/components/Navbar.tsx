@@ -182,7 +182,7 @@ function Header() {
                         type='checkbox'
                         checked={isDarkMode}
                         id='theme-toggle'
-                        tw='hidden'
+                        className='hidden'
                         onChange={toggleTheme}
                     />
                     <ToggleButton
