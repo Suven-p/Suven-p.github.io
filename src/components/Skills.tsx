@@ -8,7 +8,7 @@ const SkillCard = ({ skillName, icon }) => {
     return (
         <div className='inline-flex flex-col items-center w-full sm:w-1/2 md:w-1/3 lg:w-1/4 mb-4'>
             <img src={icon} alt={skillName} className='w-16 h-16' />
-            <p className='text-center text-white'>{skillName}</p>
+            <p className='text-center dark:text-white'>{skillName}</p>
         </div>
     );
 };
