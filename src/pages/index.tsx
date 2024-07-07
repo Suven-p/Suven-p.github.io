@@ -32,7 +32,7 @@ const IndexPage: React.FC<PageProps> = () => {
                     <p tw='dark:text-cyan-500 text-5xl'>
                         <span>I am Suven Pandey.</span>
                         <br />
-                        <span>Fullstack Developer</span>
+                        <span>DevOps Engineer</span>
                     </p>
                 </div>
                 <div tw='pr-4 h-[80%] overflow-y-scroll hidden sm:block'>
