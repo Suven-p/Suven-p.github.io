@@ -27,6 +27,7 @@ function Terminal({
                 autoComplete='off'
                 ref={inputRef}
                 style={{ outline: 'none' }}
+                autoFocus
                 className='bg-inherit grow focus-visible:outline-none focus:outline-none outline-none border-none focus:border-none focus-visible:border-none ring-0 focus:ring-0 pt-0'
                 value={currentCommand}
                 onChange={(e) => setCurrentCommand(e.target.value)}
