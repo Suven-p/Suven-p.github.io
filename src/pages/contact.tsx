@@ -200,7 +200,7 @@ const ContactPage: React.FC<PageProps> = () => {
                             </a>
                             <a href='https://linkedin.com/in/suven-pandey'>
                                 <img
-                                    src='https://github.com/tandpfun/skill-icons/raw/main/icons/LinkedIn.svg'
+                                    src='/socials/linkedin.svg'
                                     alt='Linkedin'
                                     className='inline-block w-8 h-8 ml-2'
                                 />

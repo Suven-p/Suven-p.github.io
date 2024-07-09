@@ -12,7 +12,7 @@ const ProjectsPage: React.FC<PageProps> = () => {
                 className='space-y-12 px-8 md:px-24'
                 layout
             >
-                <h1 className='text-white font-openSans text-center text-4xl font-bold mt-6 leading-tight tracking-tighter'>
+                <h1 className='text-black-500 dark:text-white font-openSans text-center text-4xl font-bold mt-6 leading-tight tracking-tighter'>
                     My Work
                 </h1>
                 <div className='grid md:grid-cols-2 gap-6'>

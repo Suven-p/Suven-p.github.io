@@ -78,6 +78,7 @@ function Links({ links }: { links: Array<Array<string>> }) {
                             key={title}
                             target='_blank'
                             rel='noreferrer'
+                            className='text-black dark:text-slate-300 visited:text-black'
                         >
                             {title}
                         </a>
@@ -182,7 +183,7 @@ function Header() {
                         type='checkbox'
                         checked={isDarkMode}
                         id='theme-toggle'
-                        tw='hidden'
+                        className='hidden'
                         onChange={toggleTheme}
                     />
                     <ToggleButton
