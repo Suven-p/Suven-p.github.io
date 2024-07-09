@@ -58,10 +58,7 @@ const AboutPage: React.FC<PageProps> = () => {
                             About Me
                         </div>
                         <p className='text-gray-700 text-base dark:text-zinc-200'>
-                            Hey, I'm Suven Pandey. I am a student from Nepal
-                            currently pursuing undergraduate in Computer
-                            Engineering. I'm currently exploring Reinforcement
-                            Learning.
+                            Hey, I'm Suven Pandey. I am currently working as a DevOps Engineer.
                         </p>
                 </div>
                 <div className='w-[20vw] min-h-full h-auto rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden'>
