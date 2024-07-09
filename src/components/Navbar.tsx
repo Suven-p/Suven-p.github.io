@@ -71,19 +71,6 @@ function Links({ links }: { links: Array<Array<string>> }) {
     return (
         <>
             {links.map(([title, path]) => {
-                if (path === '/resume/') {
-                    return (
-                        <a
-                            href='/SuvenPandey.pdf'
-                            key={title}
-                            target='_blank'
-                            rel='noreferrer'
-                            className='text-black dark:text-slate-300 visited:text-black'
-                        >
-                            {title}
-                        </a>
-                    );
-                }
                 return (
                     <Link
                         to={path}
