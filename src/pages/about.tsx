@@ -2,52 +2,7 @@ import * as React from 'react';
 import type { HeadFC, PageProps } from 'gatsby';
 import DefaultLayout from '../components/DefaultLayout';
 import Skills from '../components/Skills';
-
-const skills = [
-    // Languages
-    'C',
-    ['C++', '/icons/cpp.svg'],
-    'Javascript',
-    'Typescript',
-    'Python',
-    'HTML',
-    'CSS',
-    'Go',
-    'Rust',
-    'Flutter',
-    // Frameworks
-    'PyTorch',
-    'Express',
-    'Nodejs',
-    'React',
-    'Nextjs',
-    'Gatsby',
-    ['Jekyll', '/icons/jekyll.svg'],
-    ['Gulp', '/icons/gulp.svg'],
-    'Webpack',
-    // Developer Tools
-    'Azure',
-    'Netlify',
-    'Docker',
-    'Git',
-    'Github',
-    'Linux',
-    'Bash',
-    // Databases
-    'MySQL',
-    'MongoDB',
-    'Firebase',
-    // Design
-    'Blender',
-    'Figma',
-    // CSS Frameworks
-    'Bootstrap',
-    'TailWindCSS',
-    'MaterialUI',
-    // Testing
-    'Selenium',
-    'Jest',
-];
+import skills from '../resources/skills';
 
 const AboutPage: React.FC<PageProps> = () => {
     return (
