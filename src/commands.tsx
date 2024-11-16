@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 
 const files: { [key: string]: ReactNode; } = {
-    "about": "Hi! I am Suven Pandey. I am a full-stack developer.\n",
+    "about": "Hi! I am Suven Pandey. I am a DevOps Engineer.\n",
     "contact": <>You can contact me at <a href="mailto:pandeysuven@gmail.com">pandeysuven@gmail.com.</a></>,
 };
 
